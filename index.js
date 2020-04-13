@@ -24,11 +24,9 @@ async function getFeed_fetch() {
     });
     const xmltxt = await response.text();
     feedData = xmltxt;
-    //const data = await (new window.DOMParser()).parseFromString(xmltxt, "text/xml");
-    //console.log(xmltxt);
-
-    //return data;
+    const date = new Date()
+    console.log('feed updated at:'+date.getHours()+':'+date.getMinutes()+' '+date.getDate()+'-'+date.getMonth()+'-'+date.getFullYear());
+    setTimeout(getFeed_fetch, 3600000);
 }
 
 getFeed_fetch();
-//var interval = setInterval(getFeed_fetch(),10000);

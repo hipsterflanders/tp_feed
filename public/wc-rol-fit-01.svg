@@ -1,0 +1,5 @@
+<svg id="Rol" xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <path d="M1200,399.2c0-219.79-133.66-398-298.78-398.93v0H300V799.76H901.22v-1.64C1066.34,797.25,1200,619,1200,399.2Z" style="fill: #fff"/>
+  <ellipse cx="300" cy="400.25" rx="300" ry="400" style="fill: #e0e0e0"/>
+  <ellipse cx="300" cy="399.2" rx="110.98" ry="147.58" style="fill: #666"/>
+</svg>

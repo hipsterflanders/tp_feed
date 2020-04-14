@@ -8,6 +8,7 @@ async function getFeed() {
     feed = paresedData.getElementsByTagName('entry');
     //DOMfeed = document.getElementById("feed");
     console.log(paresedData);
+    var feedDiv = document.getElementById("feed");
 
     for (let index = 0; index < feed.length; index++) {
         const entry = feed[index];
@@ -20,8 +21,9 @@ async function getFeed() {
         title.textContent = entry.getElementsByTagName('title')[0].innerHTML;
         summary.textContent = entry.getElementsByTagName('summary')[0].innerHTML;
         root.append(title, image, summary, entry.getElementsByTagName('published')[0], entry.getElementsByTagName('updated')[0]);
-        document.getElementById("feed").append(root);
+        feedDiv.append(root);
     }
+    feedDiv.scrollTop = feedDiv.scrollHeight;
     //document.getElementById("feed").appendChild(feed);
 
     //return data;

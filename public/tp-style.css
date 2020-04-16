@@ -52,7 +52,7 @@
     margin-top: -26.6vw;
     overflow-x: hidden;
     height: 100%;
-    background-color: #fff;
+    background-color: white;
     width: 38vw;
     margin-left: 48vw;
     -ms-overflow-style: none;
@@ -69,24 +69,24 @@
     margin-left: 8vw;
     width: 78vw;
     height: 52vw;
-    border-radius: 50%/100%;
+    border-radius: 39vw/100%;
     background-color: white;
     display: inline-block;
   }
   #rol-side {
     background-color: lightgrey;
     border-radius: 100%/100%;
-    width: 50%;
+    width: 39vw;
     height: 100%;
     display: inline-block;
   }
   #inside {
-    margin-left: 30%;
+    margin-left: 11.7vw;
     margin-top: 15.6vw;
     background-color: darkgrey;
     border-radius: 100%/100%;
     height: 20.8vw;
-    width: 40%;
+    width: 15.6vw;
     display: inline-block;
   }
   #wc-rol {
@@ -133,7 +133,7 @@ body {
   #rol-side {
     background-color: lightgrey;
     border-radius: 100%/100%;
-    width: 50%;
+    width: 60vh;
     height: 100%;
     display: inline-block;
   }
@@ -143,7 +143,7 @@ body {
     background-color: darkgrey;
     border-radius: 100%/100%;
     height: 32vh;
-    width: 40%;
+    width: 24vh;
     display: inline-block;
   }
   #wc-rol {

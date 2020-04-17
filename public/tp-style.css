@@ -99,10 +99,31 @@
 
 body {
   background-color: #17bdbd;
-  font: 21px/1.2 "Forma DJR Micro",Helvetica,Arial,sans-serif;
+  font: 21px/1.2 "Forma DJR Micro", Helvetica, Arial, sans-serif;
   color: #16284a;
   margin: 0em;
   padding: 0em;
+}
+
+a:link {
+  color: #16284a;
+}
+
+published {
+  margin-top: 1em;
+  color: gray;
+}
+
+published:before {
+  content: "published: ";
+}
+
+updated {
+  color: gray;
+}
+
+updated:before {
+  content: "updated: ";
 }
 
 @media (min-aspect-ratio: 3 / 2) {

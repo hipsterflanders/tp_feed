@@ -73,7 +73,7 @@
         display: inline-block;
     }
 
-    #rol-side{
+    #rol-side {
         background-color: lightgrey;
         border-radius: 100%/100%;
         width: 39vw;
@@ -81,7 +81,7 @@
         display: inline-block;
     }
 
-    #inside{
+    #inside {
         margin-left: 11.7vw;
         margin-top: 15.6vw;
         background-color: darkgrey;
@@ -104,10 +104,28 @@
 
 body {
     background-color: rgb(23, 189, 189);
-    font: 21px/1.2 "Forma DJR Micro",Helvetica,Arial,sans-serif;
+    font: 21px/1.2 "Forma DJR Micro", Helvetica, Arial, sans-serif;
     color: #16284a;
     margin: 0em;
     padding: 0em;
+}
+a:link {
+    color: #16284a;
+}
+published {
+    margin-top: 1em;
+    color: gray;
+
+    &:before {
+        content: "published: ";
+    }
+}
+updated {
+    color: gray;
+
+    &:before {
+        content: "updated: ";
+    }
 }
 
 @media (min-aspect-ratio: 3/2) {
@@ -130,7 +148,6 @@ body {
     }
 
     #rol {
-        
         width: 120vh;
         height: 80vh;
         border-radius: 50%/100%;
@@ -138,7 +155,7 @@ body {
         display: inline-block;
     }
 
-    #rol-side{
+    #rol-side {
         background-color: lightgrey;
         border-radius: 100%/100%;
         width: 60vh;
@@ -146,7 +163,7 @@ body {
         display: inline-block;
     }
 
-    #inside{
+    #inside {
         margin-left: 30%;
         margin-top: 24vh;
         background-color: darkgrey;

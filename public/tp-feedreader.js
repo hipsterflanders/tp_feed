@@ -12,37 +12,21 @@ async function getFeed(feedDiv) {
 
     for (let index = feed.length - 1; index > 0; index--) {
         const entry = feed[index];
-        //console.log(entry.innerHTML);
         const root = document.createElement('article');
         const summary = document.createElement('p');
         const title = document.createElement('h1');
+        const link = document.createElement('a');
         const image = document.createElement('img');
+        link.setAttribute('href', entry.getElementsByTagName('link')[1].getAttribute('href'));
         image.setAttribute('src', entry.getElementsByTagName('link')[2].getAttribute('href'));
         title.textContent = entry.getElementsByTagName('title')[0].innerHTML;
         summary.textContent = entry.getElementsByTagName('summary')[0].innerHTML;
-        root.append(title, image, summary, entry.getElementsByTagName('published')[0], entry.getElementsByTagName('updated')[0]);
+        link.append(title);
+        root.append(link, image, summary, entry.getElementsByTagName('published')[0], entry.getElementsByTagName('updated')[0]);
         feedDiv.append(root);
     }
     feedDiv.scrollTop = feedDiv.scrollHeight;
-
-    //return data;
 }
-
-/*
-async function getFeed() {
-    const xhr = new XMLHttpRequest();
-    const url = 'https://www.vrt.be/vrtnws/nl.rss.headlines.xml';
-
-    xhr.open('GET', url);
-    xhr.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            // Typical action to be performed when the document is ready:
-            document.getElementById("feed").innerHTML = xhttp.responseText;
-        };
-    }
-    xhr.send();
-}
-*/
 
 window.addEventListener('load', (event) => {
 
@@ -65,40 +49,18 @@ window.addEventListener('load', (event) => {
             rolDiv.style.marginTop = (25 - change) * 2 / 3 + 'vw';
             rolDiv.style.marginLeft = (8 + (25 - change) / 2) + 'vw';
             sideDiv.style.width = (change + 15.6) + 'vw';
-        } else { 
+        } else {
             let change = (13 * feedDiv.scrollTop / feedDiv.scrollHeight) + 3.66;//
-            feedDiv.style.marginLeft = (36.5+ change * 3/4) + 'vh';
+            feedDiv.style.marginLeft = (36.5 + change * 3 / 4) + 'vh';
             feedDiv.style.marginTop = (-change - 16) + 'vh';//
             insideDiv.style.marginLeft = change * 3 / 4 + 'vh';//
             insideDiv.style.marginTop = change + 'vh';//
             rolDiv.style.width = (change * 3 / 2 + 84) + 'vh';//
             rolDiv.style.height = (2 * change + 32) + 'vh';//
             rolDiv.style.borderRadius = (change * 3 / 2 + 24) + 'vh/100%'//
-            rolDiv.style.marginTop = (16.66-change) + 'vh';//
-            rolDiv.style.marginLeft = (12.5-change*3/4) + 'vh';//
+            rolDiv.style.marginTop = (16.66 - change) + 'vh';//
+            rolDiv.style.marginLeft = (12.5 - change * 3 / 4) + 'vh';//
             sideDiv.style.width = (change * 3 / 2 + 24) + 'vh';//
         }
     });
-    //document.getElementById("feed").appendChild(vlam);
-
-    /*
-    const RSS_URL = `https://www.vrt.be/vrtnws/nl.rss.headlines.xml`;
-    fetch(RSS_URL, {
-        mode: 'no-cors' // 'cors' by default
-      }).catch((error) => console.error(error)).then((res) => {
-        res.text().then((xmlTxt) => {
-            var domParser = new DOMParser()
-            let doc = domParser.parseFromString(xmlTxt, 'text/xml')
-            
-            doc.querySelectorAll('item').forEach((item) => {
-                let h1 = document.createElement('h1')
-                h1.textContent = item.querySelector('title').textContent
-                document.querySelector('output').appendChild(h1)
-            })
-            
-           console.log(xmlTxt);
-           
-        })
-    });
-    */
 });

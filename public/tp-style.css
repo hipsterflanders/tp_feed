@@ -6,7 +6,7 @@
     display: -ms-grid;
     display: grid;
     border-bottom: 5px dashed lightgray;
-    border-width: thin;
+    border-width: thick;
   }
   article h1 {
     font-size: small;
@@ -31,7 +31,7 @@
     display: grid;
     padding-bottom: 1em;
     border-bottom: 5px dashed lightgray;
-    border-width: medium;
+    border-width: thick;
   }
   article h1 {
     font-size: large;
@@ -109,7 +109,7 @@ body {
   #feed {
     margin-top: -40vh;
     overflow-x: hidden;
-    height: 50vh;
+    height: 60vh;
     background-color: #fff;
     width: 60vh;
     margin-left: 60vh;

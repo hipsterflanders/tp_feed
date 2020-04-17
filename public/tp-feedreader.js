@@ -1,13 +1,14 @@
 
 async function getFeed(feedDiv) {
     //const RSS_URL = `https://www.vrt.be/vrtnws/nl.rss.breaking.xml`;
-    const RSS_URL = 'https://www.vrt.be/vrtnws/nl.rss.headlines.xml'
+    //const RSS_URL = 'https://www.vrt.be/vrtnws/nl.rss.headlines.xml'
+    const RSS_URL = 'https://www.vrt.be/vrtnws/nl.rss.ook-dat-nog.xml';
     const response = await fetch('/feed');
     const data = await response.json();
-    const paresedData = await (new window.DOMParser()).parseFromString(data.feedData, "text/xml");
-    feed = paresedData.getElementsByTagName('entry');
+    const parsedData = await (new window.DOMParser()).parseFromString(data.feedData, "text/xml");
+    feed = parsedData.getElementsByTagName('entry');
     //DOMfeed = document.getElementById("feed");
-    console.log(paresedData);
+    console.log(parsedData);
     //var feedDiv = document.getElementById("feed");
 
     for (let index = feed.length - 1; index > 0; index--) {
@@ -25,7 +26,41 @@ async function getFeed(feedDiv) {
         root.append(link, image, summary, entry.getElementsByTagName('published')[0], entry.getElementsByTagName('updated')[0]);
         feedDiv.append(root);
     }
+}
+
+async function getFeed2(feedDiv) {
+    //const RSS_URL = `https://www.vrt.be/vrtnws/nl.rss.breaking.xml`;
+    //const RSS_URL = 'https://www.vrt.be/vrtnws/nl.rss.headlines.xml'
+    const RSS_URL = 'https://www.vrt.be/vrtnws/nl.rss.ook-dat-nog.xml';
+    const response = await fetch('/feed2');
+    const data = await response.json();
+    const parsedData = await (new window.DOMParser()).parseFromString(data.feedData, "text/xml");
+    const feed2 = parsedData.getElementsByTagName('entry');
+    //DOMfeed = document.getElementById("feed");
+    console.log(parsedData);
+    //var feedDiv = document.getElementById("feed");
+
+    for (let index = feed2.length - 1; index > 0; index--) {
+        const entry = feed2[index];
+        const root = document.createElement('article');
+        const summary = document.createElement('p');
+        const title = document.createElement('h1');
+        const link = document.createElement('a');
+        const image = document.createElement('img');
+        link.setAttribute('href', entry.getElementsByTagName('link')[1].getAttribute('href'));
+        image.setAttribute('src', entry.getElementsByTagName('link')[2].getAttribute('href'));
+        title.textContent = entry.getElementsByTagName('title')[0].innerHTML;
+        summary.textContent = entry.getElementsByTagName('summary')[0].innerHTML;
+        link.append(title);
+        root.append(link, image, summary, entry.getElementsByTagName('published')[0], entry.getElementsByTagName('updated')[0]);
+        feedDiv.append(root);
+    }
     feedDiv.scrollTop = feedDiv.scrollHeight;
+}
+
+async function getFeeds(feedDiv){
+    getFeed(feedDiv);
+    getFeed2(feedDiv);
 }
 
 window.addEventListener('load', (event) => {
@@ -34,7 +69,7 @@ window.addEventListener('load', (event) => {
     var rolDiv = document.getElementById("rol");
     var sideDiv = document.getElementById("rol-side");
     var insideDiv = document.getElementById("inside");
-    getFeed(feedDiv);
+    getFeeds(feedDiv);
 
     feedDiv.addEventListener('scroll', () => {
         if (window.innerWidth / window.innerHeight < 1.5) {
